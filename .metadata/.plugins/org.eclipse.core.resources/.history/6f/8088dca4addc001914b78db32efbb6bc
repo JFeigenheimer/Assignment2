@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Encryption {
+
+   public static int encrypt(int data)
+   {
+     int digit1, digit2, digit3, digit4;
+
+     digit1 = data / 1000;
+     digit1 = (digit1 + 7) / 3;
+     digit2 = (data /100) % 10;
+     digit2 = (digit2 + 7) / 3;
+     digit3 = (data / 10) % 10;
+     digit3 = (digit3 + 7) / 3;
+     digit4 = (data % 10);
+     digit4 = (digit4 + 7) / 3;
+     
+     return digit1;
+   }
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int userNum;
+
+      System.out.println("Enter integer:");
+      userNum = scnr.nextInt();
+
+      if (userNum / 10000 > 0 || userNum / 1000 == 0)
+        System.out.println("Value is not four digits");
+
+      else
+      {
+        userNum = encrypt(userNum);
+        //userNum = decrypt(userNum);
+      }
+      
+      scnr.close();
+   }
+}
